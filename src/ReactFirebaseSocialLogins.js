@@ -43,9 +43,12 @@ class ReactFirebaseSocialLogins extends React.Component {
 
     const buttons = this.props.providers.map((provider) => {
       let buttonProps = this.props.btnProps;
+      if (buttonProps === undefined || buttonProps === null) {
+        buttonProps = {};
+      }
       buttonProps.disabled = this.state.loadingProvider !== null;
       buttonProps.onClick = this.state.loadingProvider === null ? loginProvider(provider).bind(this) : null;
-      
+
       return (
         <SocialButton
           key={provider}
@@ -78,7 +81,8 @@ ReactFirebaseSocialLogins.propTypes = {
 ReactFirebaseSocialLogins.defaultProps = {
   providers: ['google', 'facebook', 'twitter', 'github'],
   textFn: (social) => {return null;},
-  errorHandler: (error) => {}
+  errorHandler: (error) => {},
+  buttonProps: {}
 };
 
 export default ReactFirebaseSocialLogins;
