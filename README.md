@@ -35,3 +35,4 @@ var SocialLogins = require('react-firebase-social-logins');
 - `providers`: An array specifying which login buttons to include in the component (and their order). Defaults to `['google', 'facebook', 'twitter', 'github']`.
 - `textFn`: For each value in `providers`, this function is called to determine the text next to the icon. If `null` is returned, only the icon is rendered. Always returns `null` by default.
 - `errorHandler`: This is called with the error returned by `fireRef.authWithOAuthPopup` or `fireRef.authWithOAuthRedirect()` if neither authentication via popup nor via redirect succeeded. Does nothing by default.
+- `btnProps`: Properties object which is passed down to all buttons in the component.
