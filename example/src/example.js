@@ -1,15 +1,43 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactFirebaseSocialLogins = require('react-firebase-social-logins');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import SocialLogins from 'react-firebase-social-logins';
+import Firebase from 'firebase';
 
-var App = React.createClass({
-	render () {
-		return (
-			<div>
-				<ReactFirebaseSocialLogins />
-			</div>
-		);
-	}
-});
+const authDataCallback = function(authData) {
+  this.setState({auth: authData});
+}
 
-ReactDOM.render(<App />, document.getElementById('app'));
+class AppComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      auth: null
+    }
+  }
+
+  componentWillMount() {
+    this.fireRef = new Firebase('https://planned.firebaseio.com');
+  }
+
+  componentDidMount() {
+    this.fireRef.onAuth(authDataCallback.bind(this));
+  }
+
+  componentWillUnmount() {
+    this.fireRef.offAuth(authDataCallback);
+  }
+
+  render() {
+    return (
+      <div>
+        <SocialLogins
+          fireRef={this.fireRef}/>
+        <div>
+          Hi!
+        </div>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<AppComponent />, document.getElementById('app'));
