@@ -3,7 +3,7 @@
 A react component for quick firebase social 0Auth login. Pass a firebase ref to the component, and it handles login for the supported third-party providers.
 
 ## Live demo
-See [here](http://AljoschaMeyer.github.io/react-firebase-social-logins/) for a minimal example app where you can do nothing but logging in (and out).
+See [here](http://AljoschaMeyer.github.io/react-firebase-social-logins/) for an example app where you can do nothing but logging in (and out).
 
 Code for the demo is [here](https://github.com/AljoschaMeyer/react-firebase-social-logins/blob/master/example/src/example.js).
 
@@ -34,4 +34,4 @@ var SocialLogins = require('react-firebase-social-logins');
 - `fireRef`: Reference to a firebase. Required.
 - `providers`: An array specifying which login buttons to include in the component (and their order). Defaults to `['google', 'facebook', 'twitter', 'github']`.
 - `textFn`: For each value in `providers`, this function is called to determine the text next to the icon. If `null` is returned, only the icon is rendered. Always returns `null` by default.
-- `errorHandler`: This is called with the error returned by `fireRef.authWithOAuthRedirect()` if neither authentication via popup nor via redirect succeeded. Does nothing by default.
+- `errorHandler`: This is called with the error returned by `fireRef.authWithOAuthPopup` or `fireRef.authWithOAuthRedirect()` if neither authentication via popup nor via redirect succeeded. Does nothing by default.
