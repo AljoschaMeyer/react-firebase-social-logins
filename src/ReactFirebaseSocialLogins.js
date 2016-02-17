@@ -44,13 +44,14 @@ class ReactFirebaseSocialLogins extends React.Component {
     const buttons = this.props.providers.map((provider) => {
       return (
         <SocialButton
-        social={provider}
-        text={this.props.textFn(provider)}
-        loading={this.state.loadingProvider === provider}
-        btnProps={{
-          disabled: this.state.loadingProvider !== null,
-          onClick: this.state.loadingProvider === null ? loginProvider(provider).bind(this) : null
-        }}/>
+          key={provider}
+          social={provider}
+          text={this.props.textFn(provider)}
+          loading={this.state.loadingProvider === provider}
+          btnProps={{
+            disabled: this.state.loadingProvider !== null,
+            onClick: this.state.loadingProvider === null ? loginProvider(provider).bind(this) : null
+          }}/>
       )
     });
 
