@@ -1,21 +1,11 @@
 # React Firebase Social Logins
 
-__COMPONENT DESCRIPTION GOES HERE__
+A react component for quick firebase social 0Auth login. Pass a firebase ref to the component, and it handles login for the supported third-party providers.
 
+## Live demo
+See [here](http://AljoschaMeyer.github.io/react-firebase-social-logins/) for a minimal example app where you can do nothing but logging in (and out).
 
-## Demo & Examples
-
-Live demo: [AljoschaMeyer.github.io/react-firebase-social-logins](http://AljoschaMeyer.github.io/react-firebase-social-logins/)
-
-To build the examples locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
+Code for the demo is [here](https://github.com/AljoschaMeyer/react-firebase-social-logins/blob/master/example/src/example.js).
 
 ## Installation
 
@@ -30,32 +20,18 @@ npm install react-firebase-social-logins --save
 
 ## Usage
 
-__EXPLAIN USAGE HERE__
+The component takes a ref to the firebase. When the user clicks on one of the buttons, the buttons are disabled while login is attempted. If authorization is successfull, the user is logged in. See the [example code](http://AljoschaMeyer.github.io/react-firebase-social-logins/) for basic usage.
 
 ```
-var ReactFirebaseSocialLogins = require('react-firebase-social-logins');
+var SocialLogins = require('react-firebase-social-logins');
 
-<ReactFirebaseSocialLogins>Example</ReactFirebaseSocialLogins>
+<SocialLogins
+  fireRef={this.fireRef}/>
 ```
 
 ### Properties
 
-* __DOCUMENT PROPERTIES HERE__
-
-### Notes
-
-__ADDITIONAL USAGE NOTES__
-
-
-## Development (`src`, `lib` and the build process)
-
-**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
-
-To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
-
-## License
-
-__PUT LICENSE HERE__
-
-Copyright (c) 2016 Aljoscha Meyer.
-
+- `fireRef`: Reference to a firebase. Required.
+- `providers`: An array specifying which login buttons to include in the component (and their order). Defaults to `['google', 'facebook', 'twitter', 'github']`.
+- `textFn`: For each value in `providers`, this function is called to determine the text next to the icon. If `null` is returned, only the icon is rendered. Always returns `null` by default.
+- `errorHandler`: This is called with the error returned by `fireRef.authWithOAuthRedirect()` if neither authentication via popup nor via redirect succeeded. Does nothing by default.
