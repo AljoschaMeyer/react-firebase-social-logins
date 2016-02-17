@@ -4,6 +4,7 @@
   "description": "React Firebase Social Logins",
   "main": "lib/ReactFirebaseSocialLogins.js",
   "author": "Aljoscha Meyer",
+  "license": "MIT",
   "homepage": "https://github.com/AljoschaMeyer/react-firebase-social-logins",
   "repository": {
     "type": "git",
@@ -13,7 +14,6 @@
     "url": "https://github.com/AljoschaMeyer/react-firebase-social-logins/issues"
   },
   "dependencies": {
-    "classnames": "^2.1.2",
     "react-social-button": "^1.0.1"
   },
   "devDependencies": {
