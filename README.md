@@ -5,8 +5,6 @@ A react component for quick firebase social 0Auth login. Pass a firebase ref to 
 ## Live demo
 See [here](http://AljoschaMeyer.github.io/react-firebase-social-logins/) for an example app where you can do nothing but logging in (and out).
 
-Code for the demo is [here](https://github.com/AljoschaMeyer/react-firebase-social-logins/blob/master/example/src/example.js).
-
 ## Installation
 
 The easiest way to use react-firebase-social-logins is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
