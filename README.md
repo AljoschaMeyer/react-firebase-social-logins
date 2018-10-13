@@ -1,3 +1,9 @@
+# This Project is Unmaintained
+
+The original author is not willing anymore to maintain a project tailored to google infrastructure and silo'd logins. Github issues will be closed, not resolved.
+
+Fork if you want to use this.
+
 # React Firebase Social Logins
 
 A react component for quick firebase social 0Auth login. Pass a firebase ref to the component, and it handles login for the supported third-party providers.
